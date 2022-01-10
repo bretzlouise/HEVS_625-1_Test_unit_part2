@@ -7,5 +7,7 @@ namespace InputOutputManager
         Bitmap loadFile();
         void saveImage(Bitmap bitmap);
 
+        void ApplyFilter(bool preview);
+
     }
 }

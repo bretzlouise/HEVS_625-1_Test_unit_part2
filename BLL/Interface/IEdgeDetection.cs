@@ -3,7 +3,7 @@
 
 namespace BLL.Interface
 {
-    interface IEdgeDetection
+    public interface IEdgeDetection
     {
         //convolution filter (returning bitmap)
         Bitmap ConvolutionFilter(Bitmap sourceBitmap,
