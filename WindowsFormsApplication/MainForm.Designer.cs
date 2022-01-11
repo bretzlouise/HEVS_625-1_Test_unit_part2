@@ -186,7 +186,7 @@ namespace WindowsFormsApplication
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.picPreview);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Project - Thomas Luyet & Louise Bretz";
             ((System.ComponentModel.ISupportInitialize)(this.picPreview)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
