@@ -28,7 +28,7 @@ namespace WindowsFormsApplication
         public MainForm()
         {
             InitializeComponent();
-            //UpdateButtons();
+            UpdateButtons();
             cmbEdgeDetection.SelectedIndex = 0;
             btnSaveNewImage.Enabled = false;
 
@@ -38,7 +38,8 @@ namespace WindowsFormsApplication
         //Get a new picture
         private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
-            
+            filterButtonEnabled = false;
+            UpdateButtons();
             originalBitmap = file.openFile(sender,e);
 
             modifiedBitmap = originalBitmap;
@@ -52,7 +53,7 @@ namespace WindowsFormsApplication
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
 
-                ApplyEdgeDetection(true);              
+                EnableButtons();
             }
             catch (NullReferenceException) { }
         }
@@ -64,6 +65,12 @@ namespace WindowsFormsApplication
             file.saveFile(sender,e, modifiedBitmap);           
         }
 
+        //Enable filters buttons
+        private void EnableButtons()
+        {
+            filterButtonEnabled = true;
+            UpdateButtons();
+        }
 
         //Use one or more filters
         private void ApplyFilters(object sender, EventArgs e)
