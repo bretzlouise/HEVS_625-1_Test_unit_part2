@@ -96,6 +96,7 @@ namespace WindowsFormsApplication
             this.buttonFilter3.TabIndex = 2;
             this.buttonFilter3.Text = "Swap";
             this.buttonFilter3.UseVisualStyleBackColor = true;
+            this.buttonFilter3.Click += new System.EventHandler(this.FilterButtons);
             // 
             // buttonFilter2
             // 
@@ -105,6 +106,7 @@ namespace WindowsFormsApplication
             this.buttonFilter2.TabIndex = 1;
             this.buttonFilter2.Text = "Rainbow";
             this.buttonFilter2.UseVisualStyleBackColor = true;
+            this.buttonFilter2.Click += new System.EventHandler(this.FilterButtons);
             // 
             // buttonFilter1
             // 
@@ -114,6 +116,7 @@ namespace WindowsFormsApplication
             this.buttonFilter1.TabIndex = 0;
             this.buttonFilter1.Text = "None";
             this.buttonFilter1.UseVisualStyleBackColor = true;
+            this.buttonFilter1.Click += new System.EventHandler(this.FilterButtons);
             // 
             // groupBox3
             // 
@@ -127,11 +130,18 @@ namespace WindowsFormsApplication
             // 
             // cmbEdgeDetection
             // 
+            this.cmbEdgeDetection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEdgeDetection.FormattingEnabled = true;
+            this.cmbEdgeDetection.Items.AddRange(new object[] {
+            "None",
+            "Sobel 3x3",
+            "Prewitt",
+            "Kirsch"});
             this.cmbEdgeDetection.Location = new System.Drawing.Point(18, 32);
             this.cmbEdgeDetection.Name = "cmbEdgeDetection";
             this.cmbEdgeDetection.Size = new System.Drawing.Size(233, 24);
             this.cmbEdgeDetection.TabIndex = 0;
+            this.cmbEdgeDetection.SelectedIndexChanged += new System.EventHandler(this.NeighbourCountValueChangedEventHandler);
             // 
             // groupBox4
             // 

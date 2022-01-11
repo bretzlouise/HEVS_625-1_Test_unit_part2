@@ -61,12 +61,10 @@ namespace BLL.Tools
 
         public void saveFile(object sender, EventArgs e, Bitmap resultBitmapNeed)
         {
-            Console.WriteLine("Dans FileOperationsManager");
-            
 
             try
             {
-                fileOperations.saveFile(sender, e,resultBitmap);
+                fileOperations.saveFile(sender, e,resultBitmapNeed);
                 imageSaved = true;
                 resultBitmap = null;
             }
@@ -76,5 +74,7 @@ namespace BLL.Tools
                 imageSaved = false;
             }
         }
+
+        
     }
 }

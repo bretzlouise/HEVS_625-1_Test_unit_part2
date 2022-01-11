@@ -17,6 +17,8 @@ namespace InputOutputManager
         private bool filterButtonEnabled = false;
         private bool dropListEnabled = false;
 
+
+
         public Bitmap openFile(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -47,11 +49,8 @@ namespace InputOutputManager
         {
             //ApplyFilter(false);
 
-            Console.WriteLine("Dans FileOperations");
-
             if (resultBitmap != null)
             {
-                Console.WriteLine("Dans le if");
 
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Title = "Specify a file name and file path";
@@ -81,5 +80,6 @@ namespace InputOutputManager
                 }
             }
         }
+
     }
 }
