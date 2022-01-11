@@ -36,7 +36,7 @@ namespace WindowsFormsApplication
         }
 
         //Get a new picture
-        private void btnOpenOriginal_Click()
+        private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
 
             filterButtonEnabled = false;
@@ -62,7 +62,7 @@ namespace WindowsFormsApplication
         
 
         //Save the picture
-        private void btnSaveNewImage_Click()
+        private void btnSaveNewImage_Click(object sender, EventArgs e)
         {          
             file.saveFile(modifiedBitmap);           
         }
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication
         }
 
         //Use one or more filters
-        private void ApplyFilters()
+        private void ApplyFilters(object sender, EventArgs e)
         {
             btnSaveNewImage.Enabled = true;
             dropListEnabled = true;
