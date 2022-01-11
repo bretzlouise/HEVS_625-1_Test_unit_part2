@@ -67,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tools\FileManager.cs" />
     <Compile Include="Interface\ICanvasManager.cs" />
     <Compile Include="Interface\IEdgeDetection.cs" />
     <Compile Include="Interface\IImageFilters.cs" />
