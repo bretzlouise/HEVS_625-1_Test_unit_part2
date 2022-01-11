@@ -16,10 +16,10 @@ namespace BLL.Interface
 
         //Creating interface for the image Detection 
         Bitmap Sobel3x3Filter(Bitmap sourceBitmap,
-                                                bool grayscale = true);
+                                                bool grayscale = false);
         Bitmap PrewittFilter(Bitmap sourceBitmap,
-                                               bool grayscale = true);
+                                               bool grayscale = false);
         Bitmap KirschFilter(Bitmap sourceBitmap,
-                                              bool grayscale = true);
+                                              bool grayscale = false);
     }
 }

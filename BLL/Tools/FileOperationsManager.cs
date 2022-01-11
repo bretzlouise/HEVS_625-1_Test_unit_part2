@@ -25,11 +25,13 @@ namespace BLL.Tools
         }
 
 
-        public Bitmap openFile(object sender, EventArgs e)
+        public Bitmap openFile()
         {
             try
             {
-                originalBitmap = fileOperations.openFile(sender, e);
+
+                originalBitmap = fileOperations.openFile();
+
                 resultBitmap = originalBitmap;
 
                 return originalBitmap;
@@ -41,12 +43,12 @@ namespace BLL.Tools
             }
         }
 
-        public void saveFile(object sender, EventArgs e, Bitmap resultBitmapNeed)
+        public void saveFile(Bitmap resultBitmapNeed)
         {
 
             try
             {
-                fileOperations.saveFile(sender, e,resultBitmapNeed);
+                fileOperations.saveFile(resultBitmapNeed);
                 imageSaved = true;
                 resultBitmap = null;
             }
@@ -57,6 +59,12 @@ namespace BLL.Tools
             }
         }
 
-        
+        //getter for the bool if the file is saved or not
+        public bool getFileSaved()
+        {
+            return this.imageSaved;
+        }
+
+
     }
 }
