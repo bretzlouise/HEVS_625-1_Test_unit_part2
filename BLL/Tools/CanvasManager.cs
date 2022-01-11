@@ -4,7 +4,7 @@ using BLL.Interface;
 
 namespace BLL.Tools
 {
-    class CanvasManager : ICanvasManager
+    public class CanvasManager : ICanvasManager
     {
         public Bitmap copyToSquareCanvas(Bitmap sourceBitmap, int canvasWidthLenght)
         {
