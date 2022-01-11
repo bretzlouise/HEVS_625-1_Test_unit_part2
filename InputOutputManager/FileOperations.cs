@@ -8,14 +8,14 @@ namespace InputOutputManager
 {
     public class FileOperations : IFileOperations
     {
-        private Bitmap edited = null;
+        //private Bitmap edited = null;
         private Bitmap originalBitmap = null;
-        private Bitmap modifiedBitmap = null;
-        private Bitmap previewBitmap = null;
-        private Bitmap resultBitmap = null;
-        private Bitmap filterBitmap = null;
-        private bool filterButtonEnabled = false;
-        private bool dropListEnabled = false;
+        //private Bitmap modifiedBitmap = null;
+        //private Bitmap previewBitmap = null;
+        //private Bitmap resultBitmap = null;
+        //private Bitmap filterBitmap = null;
+        //private bool filterButtonEnabled = false;
+        //private bool dropListEnabled = false;
 
 
         public Bitmap openFile(object sender, EventArgs e)
@@ -30,8 +30,6 @@ namespace InputOutputManager
                 StreamReader streamReader = new StreamReader(ofd.FileName);
                 originalBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
                 streamReader.Close();
-
-                //ApplyFilter(true);
             }
 
             return originalBitmap;
@@ -39,8 +37,6 @@ namespace InputOutputManager
 
         public void saveFile(object sender, EventArgs e, Bitmap resultBitmap)
         {
-            //ApplyFilter(false);
-
             if (resultBitmap != null)
             {
 
