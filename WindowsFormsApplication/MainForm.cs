@@ -82,6 +82,8 @@ namespace WindowsFormsApplication
             string button = sender.ToString();
             string filter1 = "System.Windows.Forms.Button, Text: None";
             string filter2 = "System.Windows.Forms.Button, Text: Rainbow";
+            string filter3 = "System.Windows.Forms.Button, Text: Swap";
+            string filter4 = "System.Windows.Forms.Button, Text: Black and White";
 
             if (button.Equals(filter1))
             {
@@ -94,9 +96,13 @@ namespace WindowsFormsApplication
                 {
                     edited = imageFilters.RainbowFilter(modifiedBitmap);
                 }
-                else
+                if (button.Equals(filter3))
                 {
                     edited = imageFilters.SwapFilter(modifiedBitmap);
+                }
+                if (button.Equals(filter4))
+                {
+                    edited = imageFilters.BlackWhite(modifiedBitmap);
                 }
                 
                 modifiedBitmap = edited;
@@ -141,7 +147,6 @@ namespace WindowsFormsApplication
                 }
                 else if (cmbEdgeDetection.SelectedItem.ToString() == "Kirsch")
                 {
-
                     bitmapResult = edgeFilters.KirschFilter(modifiedBitmap, false);
                 }
             }
@@ -167,6 +172,7 @@ namespace WindowsFormsApplication
             buttonFilter1.Enabled = filterButtonEnabled;
             buttonFilter2.Enabled = filterButtonEnabled;
             buttonFilter3.Enabled = filterButtonEnabled;
+            buttonFilter4.Enabled = filterButtonEnabled;
             cmbEdgeDetection.Enabled = dropListEnabled;
         }
 
