@@ -39,7 +39,7 @@ namespace WindowsFormsApplication
         private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
             
-            originalBitmap = file.openFile(sender,e);
+            originalBitmap = file.openFile();
 
             modifiedBitmap = originalBitmap;
             picPreview.Image = originalBitmap;
@@ -61,7 +61,7 @@ namespace WindowsFormsApplication
         //Save the picture
         private void btnSaveNewImage_Click(object sender, EventArgs e)
         {          
-            file.saveFile(sender,e, modifiedBitmap);           
+            file.saveFile(modifiedBitmap);           
         }
 
 
