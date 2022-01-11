@@ -6,18 +6,13 @@ namespace BLL.Tools
 {
     public class FileOperationsManager : InputOutputManager.IFileOperations
     {
-
-        bool imageSaved;
+        //Call to the interface
         InputOutputManager.IFileOperations fileOperations;
-
-        private Bitmap edited = null;
+        
+        //Variables
+        bool imageSaved;
         private Bitmap originalBitmap = null;
-        private Bitmap modifiedBitmap = null;
-        private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
-        private Bitmap filterBitmap = null;
-        private bool filterButtonEnabled = false;
-        private bool dropListEnabled = false;
 
         public FileOperationsManager()
         {
@@ -36,12 +31,8 @@ namespace BLL.Tools
             {
 
                 originalBitmap = fileOperations.openFile();
-                previewBitmap = originalBitmap;
-                resultBitmap = originalBitmap;
-                filterBitmap = originalBitmap;
-                modifiedBitmap = originalBitmap;
 
-                //ApplyFilter(true);
+                resultBitmap = originalBitmap;
 
                 return originalBitmap;
             }

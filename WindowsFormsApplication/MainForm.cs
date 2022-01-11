@@ -28,7 +28,7 @@ namespace WindowsFormsApplication
         public MainForm()
         {
             InitializeComponent();
-            //UpdateButtons();
+            UpdateButtons();
             cmbEdgeDetection.SelectedIndex = 0;
             btnSaveNewImage.Enabled = false;
 
@@ -36,10 +36,13 @@ namespace WindowsFormsApplication
         }
 
         //Get a new picture
-        private void btnOpenOriginal_Click(object sender, EventArgs e)
+        private void btnOpenOriginal_Click()
         {
-            
+
+            filterButtonEnabled = false;
+            UpdateButtons();
             originalBitmap = file.openFile();
+
 
             modifiedBitmap = originalBitmap;
             picPreview.Image = originalBitmap;
@@ -52,21 +55,27 @@ namespace WindowsFormsApplication
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
 
-                ApplyEdgeDetection(true);              
+                EnableButtons();
             }
             catch (NullReferenceException) { }
         }
         
 
         //Save the picture
-        private void btnSaveNewImage_Click(object sender, EventArgs e)
+        private void btnSaveNewImage_Click()
         {          
             file.saveFile(modifiedBitmap);           
         }
 
+        //Enable filters buttons
+        private void EnableButtons()
+        {
+            filterButtonEnabled = true;
+            UpdateButtons();
+        }
 
         //Use one or more filters
-        private void ApplyFilters(object sender, EventArgs e)
+        private void ApplyFilters()
         {
             btnSaveNewImage.Enabled = true;
             dropListEnabled = true;
@@ -75,6 +84,8 @@ namespace WindowsFormsApplication
             string button = sender.ToString();
             string filter1 = "System.Windows.Forms.Button, Text: None";
             string filter2 = "System.Windows.Forms.Button, Text: Rainbow";
+            string filter3 = "System.Windows.Forms.Button, Text: Swap";
+            string filter4 = "System.Windows.Forms.Button, Text: Black and White";
 
             if (button.Equals(filter1))
             {
@@ -87,9 +98,13 @@ namespace WindowsFormsApplication
                 {
                     edited = imageFilters.RainbowFilter(modifiedBitmap);
                 }
-                else
+                if (button.Equals(filter3))
                 {
                     edited = imageFilters.SwapFilter(modifiedBitmap);
+                }
+                if (button.Equals(filter4))
+                {
+                    edited = imageFilters.BlackWhite(modifiedBitmap);
                 }
                 
                 modifiedBitmap = edited;
@@ -134,7 +149,6 @@ namespace WindowsFormsApplication
                 }
                 else if (cmbEdgeDetection.SelectedItem.ToString() == "Kirsch")
                 {
-
                     bitmapResult = edgeFilters.KirschFilter(modifiedBitmap, false);
                 }
             }
@@ -160,6 +174,7 @@ namespace WindowsFormsApplication
             buttonFilter1.Enabled = filterButtonEnabled;
             buttonFilter2.Enabled = filterButtonEnabled;
             buttonFilter3.Enabled = filterButtonEnabled;
+            buttonFilter4.Enabled = filterButtonEnabled;
             cmbEdgeDetection.Enabled = dropListEnabled;
         }
 

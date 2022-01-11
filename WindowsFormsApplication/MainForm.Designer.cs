@@ -40,6 +40,7 @@ namespace WindowsFormsApplication
             this.cmbEdgeDetection = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSaveNewImage = new System.Windows.Forms.Button();
+            this.buttonFilter4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -52,7 +53,7 @@ namespace WindowsFormsApplication
             this.picPreview.BackColor = System.Drawing.Color.Silver;
             this.picPreview.Location = new System.Drawing.Point(307, 28);
             this.picPreview.Name = "picPreview";
-            this.picPreview.Size = new System.Drawing.Size(695, 507);
+            this.picPreview.Size = new System.Drawing.Size(718, 513);
             this.picPreview.TabIndex = 0;
             this.picPreview.TabStop = false;
             // 
@@ -78,21 +79,22 @@ namespace WindowsFormsApplication
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonFilter4);
             this.groupBox2.Controls.Add(this.buttonFilter3);
             this.groupBox2.Controls.Add(this.buttonFilter2);
             this.groupBox2.Controls.Add(this.buttonFilter1);
             this.groupBox2.Location = new System.Drawing.Point(12, 116);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 212);
+            this.groupBox2.Size = new System.Drawing.Size(276, 239);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Step 2 - Choose 0, 1 or 2 filters";
+            this.groupBox2.Text = "Step 2 - Choose 0, 1 or 3 filters";
             // 
             // buttonFilter3
             // 
-            this.buttonFilter3.Location = new System.Drawing.Point(18, 139);
+            this.buttonFilter3.Location = new System.Drawing.Point(18, 130);
             this.buttonFilter3.Name = "buttonFilter3";
-            this.buttonFilter3.Size = new System.Drawing.Size(233, 42);
+            this.buttonFilter3.Size = new System.Drawing.Size(233, 44);
             this.buttonFilter3.TabIndex = 2;
             this.buttonFilter3.Text = "Swap";
             this.buttonFilter3.UseVisualStyleBackColor = true;
@@ -100,7 +102,7 @@ namespace WindowsFormsApplication
             // 
             // buttonFilter2
             // 
-            this.buttonFilter2.Location = new System.Drawing.Point(18, 90);
+            this.buttonFilter2.Location = new System.Drawing.Point(18, 81);
             this.buttonFilter2.Name = "buttonFilter2";
             this.buttonFilter2.Size = new System.Drawing.Size(233, 43);
             this.buttonFilter2.TabIndex = 1;
@@ -110,7 +112,7 @@ namespace WindowsFormsApplication
             // 
             // buttonFilter1
             // 
-            this.buttonFilter1.Location = new System.Drawing.Point(18, 40);
+            this.buttonFilter1.Location = new System.Drawing.Point(18, 31);
             this.buttonFilter1.Name = "buttonFilter1";
             this.buttonFilter1.Size = new System.Drawing.Size(233, 44);
             this.buttonFilter1.TabIndex = 0;
@@ -121,7 +123,7 @@ namespace WindowsFormsApplication
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cmbEdgeDetection);
-            this.groupBox3.Location = new System.Drawing.Point(12, 344);
+            this.groupBox3.Location = new System.Drawing.Point(12, 361);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(276, 80);
             this.groupBox3.TabIndex = 3;
@@ -146,7 +148,7 @@ namespace WindowsFormsApplication
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnSaveNewImage);
-            this.groupBox4.Location = new System.Drawing.Point(12, 441);
+            this.groupBox4.Location = new System.Drawing.Point(12, 447);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(276, 94);
             this.groupBox4.TabIndex = 4;
@@ -163,11 +165,21 @@ namespace WindowsFormsApplication
             this.btnSaveNewImage.UseVisualStyleBackColor = true;
             this.btnSaveNewImage.Click += new System.EventHandler(this.btnSaveNewImage_Click);
             // 
+            // buttonFilter4
+            // 
+            this.buttonFilter4.Location = new System.Drawing.Point(18, 180);
+            this.buttonFilter4.Name = "buttonFilter4";
+            this.buttonFilter4.Size = new System.Drawing.Size(233, 44);
+            this.buttonFilter4.TabIndex = 3;
+            this.buttonFilter4.Text = "Black and White";
+            this.buttonFilter4.UseVisualStyleBackColor = true;
+            this.buttonFilter4.Click += new System.EventHandler(this.ApplyFilters);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 554);
+            this.ClientSize = new System.Drawing.Size(1052, 565);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -197,5 +209,6 @@ namespace WindowsFormsApplication
         private System.Windows.Forms.Button buttonFilter3;
         private System.Windows.Forms.ComboBox cmbEdgeDetection;
         private System.Windows.Forms.Button btnSaveNewImage;
+        private System.Windows.Forms.Button buttonFilter4;
     }
 }
