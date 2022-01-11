@@ -10,14 +10,14 @@ namespace BLL.Tools
         InputOutputManager.IImageManager imageManager;
 
 
-        public Bitmap edited = null;
-        public Bitmap originalBitmap = null;
-        public Bitmap modifiedBitmap = null;
-        public Bitmap previewBitmap = null;
-        public Bitmap resultBitmap = null;
-        public Bitmap filterBitmap = null;
-        public bool filterButtonEnabled = false;
-        public bool dropListEnabled = false;
+        //public Bitmap edited = null;
+        //public Bitmap originalBitmap = null;
+        //public Bitmap modifiedBitmap = null;
+        //public Bitmap previewBitmap = null;
+        //public Bitmap resultBitmap = null;
+        //public Bitmap filterBitmap = null;
+        //public bool filterButtonEnabled = false;
+        //public bool dropListEnabled = false;
 
 
         public FileManager()

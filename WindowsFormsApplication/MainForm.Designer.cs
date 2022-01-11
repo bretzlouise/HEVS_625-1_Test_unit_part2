@@ -74,6 +74,7 @@ namespace WindowsFormsApplication
             this.btnOpenOriginal.TabIndex = 0;
             this.btnOpenOriginal.Text = "Upload your image";
             this.btnOpenOriginal.UseVisualStyleBackColor = true;
+            this.btnOpenOriginal.Click += new System.EventHandler(this.btnOpenOriginal_Click);
             // 
             // groupBox2
             // 
@@ -150,6 +151,7 @@ namespace WindowsFormsApplication
             this.btnSaveNewImage.TabIndex = 0;
             this.btnSaveNewImage.Text = "Save";
             this.btnSaveNewImage.UseVisualStyleBackColor = true;
+            this.btnSaveNewImage.Click += new System.EventHandler(this.btnSaveNewImage_Click);
             // 
             // MainForm
             // 
