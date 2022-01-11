@@ -9,31 +9,18 @@ namespace WindowsFormsApplication
 {
     public partial class MainForm : Form
     {
-
+        //Call to the interfaces
         IImageFilters imageFilters = new ImageFilters();
         IEdgeDetection edgeFilters = new EdgeDetection();
         ICanvasManager canvasManager = new CanvasManager();
 
-
-        private Bitmap originalBitmap = null;
-        private Bitmap forResetBitmap = null;
-
-        //tempBitmap is used is case no image filter is applied so you can still apply an edge filter
-        private Bitmap tempBitmap = null;
-        private Bitmap resultBitmap = null;
-
-        //private FileManager file = null;
-        //private FileManager file = new FileManager();
-
+        //Call to the FileOperationsManager
         private FileOperationsManager file = null;
 
-        ////Nos anciennes variables
+        //Variables
+        private Bitmap originalBitmap = null;
         private Bitmap edited = null;
-        ////private Bitmap originalBitmap = null;
         private Bitmap modifiedBitmap = null;
-        private Bitmap previewBitmap = null;
-        //private Bitmap resultBitmap = null;
-        //private Bitmap filterBitmap = null;
         private bool filterButtonEnabled = false;
         private bool dropListEnabled = false;
 
@@ -41,10 +28,6 @@ namespace WindowsFormsApplication
         public MainForm()
         {
             InitializeComponent();
-
-            //file = new FileManager();
-            
-
             //UpdateButtons();
             cmbEdgeDetection.SelectedIndex = 0;
             btnSaveNewImage.Enabled = false;
@@ -52,6 +35,7 @@ namespace WindowsFormsApplication
             file = new FileOperationsManager();
         }
 
+        //Get a new picture
         private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
             
@@ -68,24 +52,21 @@ namespace WindowsFormsApplication
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
 
-                ApplyEdgeDetection(true);
-
-                
+                ApplyEdgeDetection(true);              
             }
             catch (NullReferenceException) { }
         }
         
 
-        //button that calls method to save modified image in local storage
+        //Save the picture
         private void btnSaveNewImage_Click(object sender, EventArgs e)
-        {
-            
+        {          
             file.saveFile(sender,e, modifiedBitmap);           
         }
 
-        
 
-        private void FilterButtons(object sender, EventArgs e)
+        //Use one or more filters
+        private void ApplyFilters(object sender, EventArgs e)
         {
             btnSaveNewImage.Enabled = true;
             dropListEnabled = true;
@@ -104,7 +85,6 @@ namespace WindowsFormsApplication
             {
                 if (button.Equals(filter2))
                 {
-                    Console.WriteLine("Je suis dans Rainbow");
                     edited = imageFilters.RainbowFilter(modifiedBitmap);
                 }
                 else
@@ -113,33 +93,19 @@ namespace WindowsFormsApplication
                 }
                 
                 modifiedBitmap = edited;
-                //resultBitmap = modifiedBitmap;
                 picPreview.Image = modifiedBitmap;
             }
         }
 
-
+        //Apply Edge detection on the picture
         private void ApplyEdgeDetection(bool preview)
         {
-
-            //CONTROLER ET NETTOYER LES LIGNES -> 133
-            //if (modifiedBitmap == null || cmbEdgeDetection.SelectedIndex == -1)
-            if (cmbEdgeDetection.SelectedIndex == -1)
-                {
-                if (modifiedBitmap == null)
-                {
-                }
-                return;
-            }
-
-
             Bitmap selectedSource = null;
             Bitmap bitmapResult = null;
 
             if (preview == true)
             {
                 selectedSource = (Bitmap)picPreview.Image;
-                Console.WriteLine("Je suis dans le true");
             }
             else
             {
@@ -184,7 +150,6 @@ namespace WindowsFormsApplication
                 {
                     modifiedBitmap = (Bitmap)picPreview.Image;
                 }
-
             }
         }
 
@@ -198,6 +163,7 @@ namespace WindowsFormsApplication
             cmbEdgeDetection.Enabled = dropListEnabled;
         }
 
+        //Method used to enable EdgeDetection when Filters are on
         private void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
         {
             ApplyEdgeDetection(true);

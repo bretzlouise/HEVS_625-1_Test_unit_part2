@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InputOutputManager;
 using System.Drawing;
 
@@ -47,9 +43,6 @@ namespace BLL.Tools
 
                 //ApplyFilter(true);
 
-
-
-                //return fileOperations.openFile(sender,e);
                 return originalBitmap;
             }
             catch (Exception ex)

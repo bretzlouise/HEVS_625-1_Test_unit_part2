@@ -18,7 +18,6 @@ namespace InputOutputManager
         private bool dropListEnabled = false;
 
 
-
         public Bitmap openFile(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -31,13 +30,6 @@ namespace InputOutputManager
                 StreamReader streamReader = new StreamReader(ofd.FileName);
                 originalBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
                 streamReader.Close();
-
-                //previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
-                ////previewBitmap = originalBitmap
-                ////picPreview.Image = previewBitmap;
-                ////resultBitmap = originalBitmap;
-                //filterBitmap = originalBitmap;
-                //modifiedBitmap = originalBitmap;
 
                 //ApplyFilter(true);
             }
@@ -76,7 +68,7 @@ namespace InputOutputManager
                     streamWriter.Flush();
                     streamWriter.Close();
 
-                    //resultBitmap = null;
+                    resultBitmap = null;
                 }
             }
         }

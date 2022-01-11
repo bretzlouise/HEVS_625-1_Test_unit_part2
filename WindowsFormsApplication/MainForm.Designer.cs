@@ -96,7 +96,7 @@ namespace WindowsFormsApplication
             this.buttonFilter3.TabIndex = 2;
             this.buttonFilter3.Text = "Swap";
             this.buttonFilter3.UseVisualStyleBackColor = true;
-            this.buttonFilter3.Click += new System.EventHandler(this.FilterButtons);
+            this.buttonFilter3.Click += new System.EventHandler(this.ApplyFilters);
             // 
             // buttonFilter2
             // 
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication
             this.buttonFilter2.TabIndex = 1;
             this.buttonFilter2.Text = "Rainbow";
             this.buttonFilter2.UseVisualStyleBackColor = true;
-            this.buttonFilter2.Click += new System.EventHandler(this.FilterButtons);
+            this.buttonFilter2.Click += new System.EventHandler(this.ApplyFilters);
             // 
             // buttonFilter1
             // 
@@ -116,7 +116,7 @@ namespace WindowsFormsApplication
             this.buttonFilter1.TabIndex = 0;
             this.buttonFilter1.Text = "None";
             this.buttonFilter1.UseVisualStyleBackColor = true;
-            this.buttonFilter1.Click += new System.EventHandler(this.FilterButtons);
+            this.buttonFilter1.Click += new System.EventHandler(this.ApplyFilters);
             // 
             // groupBox3
             // 
