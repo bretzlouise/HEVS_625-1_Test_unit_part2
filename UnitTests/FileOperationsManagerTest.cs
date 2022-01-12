@@ -48,40 +48,41 @@ namespace UnitTests
             Assert.IsTrue(fileOperations.getFileSaved());  //Test if the the file is saved
         }
 
+        // Test method to check that if the exception is correct with the loadFile() method
         [TestMethod]
         public void TestLoadFileExceptions()
         {
-            //create a substitute for the fileOperation
-            var loadFile = Substitute.For<IFileOperations>();
+           
+            var loadFile = Substitute.For<IFileOperations>();  //create a substitute for the fileOperation
 
+            FileOperations fileOperation = new FileOperations(); 
+            
+            loadFile.openFile().Returns(x => { throw new Exception(); });//Make the method throw an exception
 
-            FileOperations fileOperation = new FileOperations();
-            //Make the method throw an exception
-            loadFile.openFile().Returns(x => { throw new Exception(); });
+            
+            fileOperation.openFile();//Emulate null loadFile
 
-            //Emulate null loadFile
-            fileOperation.openFile();
-
-            //Test the Exception
-            Assert.ThrowsException<Exception>(() => loadFile.openFile());
+          
+            Assert.ThrowsException<Exception>(() => loadFile.openFile());  //Test the Exception
         }
 
+
+        // Test method to check that if the exception is correct with the saveFile() method
         [TestMethod]
         public void TestSaveFileExceptions()
         {
-            //create a substitute for the fileOperation
-            var saveFile = Substitute.For<IFileOperations>();
-
+            
+            var saveFile = Substitute.For<IFileOperations>();//create a substitute for the fileOperation
             FileOperations fileOperation = new FileOperations();
 
-            //Make the method throw an exception
+          
             saveFile
                 .When(x => x.saveFile(null))
-                .Do(x => { throw new Exception(); });
-            //Save a null image
-            fileOperation.saveFile(null);
-            //Test the Exception
-            Assert.ThrowsException<Exception>(() => saveFile.saveFile(null));
+                .Do(x => { throw new Exception(); });  //Make the method throw an exception
+            
+            fileOperation.saveFile(null);//Save a null image
+        
+            Assert.ThrowsException<Exception>(() => saveFile.saveFile(null));    //Test the Exception
         }
 
 

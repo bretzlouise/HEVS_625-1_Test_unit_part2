@@ -9,6 +9,8 @@ namespace UnitTests
     [TestClass]
     public class CanvasManagerTest
     {
+
+        //Test method to check if the method copyToSquareCanvas() is right
         [TestMethod]
         public void TestCopyToSquareCanvas()
         {
