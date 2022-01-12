@@ -67,10 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\ICanvasManager.cs" />
     <Compile Include="Interface\IEdgeDetection.cs" />
     <Compile Include="Interface\IImageFilters.cs" />
-    <Compile Include="Tools\CanvasManager.cs" />
     <Compile Include="ModificationImage\EdgeDetection.cs" />
     <Compile Include="ModificationImage\ImageFilters.cs" />
     <Compile Include="ModificationImage\Matrix.cs" />

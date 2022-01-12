@@ -64,7 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CanvasManagerTest.cs" />
     <Compile Include="EdgeDetectionTest.cs" />
     <Compile Include="FileOperationsManagerTest.cs" />
     <Compile Include="ImageFilterTest.cs" />
