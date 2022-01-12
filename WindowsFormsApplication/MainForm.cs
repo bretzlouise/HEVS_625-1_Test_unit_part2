@@ -54,6 +54,7 @@ namespace WindowsFormsApplication
                 picPreview.Image = canvasManager.copyToSquareCanvas(originalBitmap, 415);
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+              
 
                 EnableButtons();
             }

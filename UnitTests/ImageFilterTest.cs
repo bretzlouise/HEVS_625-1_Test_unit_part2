@@ -43,5 +43,20 @@ namespace UnitTests
             Assert.AreEqual(true, isSame);
         }
 
+        //Test method to check that the black filter works in the same way in the code and in the app result
+        [TestMethod]
+        public void BlackAndWhiteFilterTest()
+        {
+            // Loading images et application of the filter
+            Bitmap resultPictureAfterFilter = imageFilters.BlackWhite(originalPictureOpenSuse);
+            Bitmap resultSavedBitmap = Properties.Resources.openSuseBlackAndWhite;
+
+            //Call the comparison method between two bitmaps,
+            //It returns true or false depending on whether the comparison is correct or not
+            bool isSame = TestMethods.CompareImages(resultPictureAfterFilter, resultSavedBitmap);
+
+            Assert.AreEqual(true, isSame);
+        }
+
     }
 }

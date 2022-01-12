@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using BLL.Tools;
 using InputOutputManager;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -47,6 +48,42 @@ namespace UnitTests
             Assert.IsTrue(fileOperations.getFileSaved());  //Test if the the file is saved
         }
 
-       
+        [TestMethod]
+        public void TestLoadFileExceptions()
+        {
+            //create a substitute for the fileOperation
+            var loadFile = Substitute.For<IFileOperations>();
+
+
+            FileOperations fileOperation = new FileOperations();
+            //Make the method throw an exception
+            loadFile.openFile().Returns(x => { throw new Exception(); });
+
+            //Emulate null loadFile
+            fileOperation.openFile();
+
+            //Test the Exception
+            Assert.ThrowsException<Exception>(() => loadFile.openFile());
+        }
+
+        [TestMethod]
+        public void TestSaveFileExceptions()
+        {
+            //create a substitute for the fileOperation
+            var saveFile = Substitute.For<IFileOperations>();
+
+            FileOperations fileOperation = new FileOperations();
+
+            //Make the method throw an exception
+            saveFile
+                .When(x => x.saveFile(null))
+                .Do(x => { throw new Exception(); });
+            //Save a null image
+            fileOperation.saveFile(null);
+            //Test the Exception
+            Assert.ThrowsException<Exception>(() => saveFile.saveFile(null));
+        }
+
+
     }
 }

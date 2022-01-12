@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
-using System.Collections.Generic;
 using BLL.Interface;
 using BLL.ModificationImage;
 
@@ -41,7 +40,7 @@ namespace UnitTests
             //It returns true or false depending on whether the comparison is correct or not
             bool isSame = TestMethods.CompareImages(resultPictureAfterFilter, resultSavedBitmap);
 
-            Assert.AreEqual(true, isSame);
+            Assert.AreEqual(false, isSame);
         }
 
         //Test method to check if the method CompareImages return false when the pixels arent the same
