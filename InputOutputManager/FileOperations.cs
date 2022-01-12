@@ -18,7 +18,7 @@ namespace InputOutputManager
         //private bool dropListEnabled = false;
 
 
-        public Bitmap openFile(object sender, EventArgs e)
+        public Bitmap openFile()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select an image file.";
@@ -35,7 +35,7 @@ namespace InputOutputManager
             return originalBitmap;
         }
 
-        public void saveFile(object sender, EventArgs e, Bitmap resultBitmap)
+        public void saveFile(Bitmap resultBitmap)
         {
             if (resultBitmap != null)
             {

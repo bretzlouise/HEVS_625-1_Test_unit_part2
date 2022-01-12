@@ -5,9 +5,9 @@ namespace InputOutputManager
 {
     public interface IFileOperations
     {
-        Bitmap openFile(object sender, EventArgs e);
+        Bitmap openFile();
 
-        void saveFile(object sender, EventArgs e, Bitmap resultBitmap);
+        void saveFile(Bitmap resultBitmap);
 
     }
 }
