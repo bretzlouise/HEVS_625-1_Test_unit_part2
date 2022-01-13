@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using BLL.Interface;
 using BLL.ModificationImage;
 using BLL.Tools;
+
 
 namespace WindowsFormsApplication
 {
@@ -41,23 +43,31 @@ namespace WindowsFormsApplication
 
             filterButtonEnabled = false;
             UpdateButtons();
-            originalBitmap = file.openFile();
-
-
-            modifiedBitmap = originalBitmap;
-            picPreview.Image = originalBitmap;
+            
 
             try
             {
+
+                originalBitmap = file.openFile();
+                modifiedBitmap = originalBitmap;
+                picPreview.Image = originalBitmap;
                 var initialImageSize = picPreview.Image.Size;
                 var displaySize = picPreview.ClientSize;
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
-              
+
 
                 EnableButtons();
+
+
             }
-            catch (NullReferenceException) { }
+            catch (FileNotFoundException exe) {
+
+                Console.WriteLine("oops!\n -> " + exe.Message);
+
+            }
+
+         
         }
         
 

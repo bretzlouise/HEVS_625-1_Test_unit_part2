@@ -21,10 +21,24 @@ namespace InputOutputManager
             {
                 StreamReader streamReader = new StreamReader(ofd.FileName);
                 originalBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
-                streamReader.Close();
+                if (originalBitmap != null)
+                {
+                    streamReader.Close();
+                    return originalBitmap;
+                }
+                else
+                {
+                    throw new FileNotFoundException("file not found 1");
+                }
+
+
+            }
+            else
+            {
+                throw new FileNotFoundException("file not found 2");
             }
 
-            return originalBitmap;
+ 
         }
 
         public void saveFile(Bitmap resultBitmap)

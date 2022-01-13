@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using BLL.Tools;
 using InputOutputManager;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,19 +16,16 @@ namespace UnitTests
         [TestMethod]
         public void TestOpenFile()
         {
-            //TODO : CHECK THIS METHOD
             var loadedFile = Substitute.For<IFileOperations>(); //create a substitute for the interface
             Bitmap imageStored = Properties.Resources.beach; //get the file stored            
             loadedFile.openFile().Returns(imageStored); //use the image has substitute of selecting a file
 
-            
+
             FileOperationsManager fileOperations = new FileOperationsManager(loadedFile); //instantiate the BLL methods
-            //CanvasManager canvasManager = new CanvasManager();
 
             fileOperations.openFile();
-           // Bitmap resultInCanvas = canvasManager.copyToSquareCanvas(imageStored, 415); //Add the file in the canvas
 
-            
+  
             Assert.IsTrue(TestMethods.CompareImages(imageStored, 
                 (new Bitmap(Properties.Resources.beach))));
         }
@@ -42,6 +40,7 @@ namespace UnitTests
             saveFile.saveFile(beachStored); //use the image has substitute of saving a file
             FileOperationsManager fileOperations = new FileOperationsManager(saveFile);
 
+
             fileOperations.saveFile(beachStored); //Execute the method
 
             Assert.IsTrue(fileOperations.getFileSaved()); //Test if the the file is saved
@@ -54,11 +53,11 @@ namespace UnitTests
             var loadFile = Substitute.For<IFileOperations>(); //create a substitute for the fileOperation
             FileOperations fileOperation = new FileOperations(); 
             
-            loadFile.openFile().Returns(x => { throw new Exception(); }); //Make the method throw an exception
+            loadFile.openFile().Returns(x => { throw new FileNotFoundException(); }); //Make the method throw an exception
 
             fileOperation.openFile(); //Emulate null loadFile
 
-            Assert.ThrowsException<Exception>(() => loadFile.openFile()); //Test the Exception
+            Assert.ThrowsException<FileNotFoundException>(() => loadFile.openFile()); //Test the Exception
         }
 
 
@@ -77,6 +76,20 @@ namespace UnitTests
         
             Assert.ThrowsException<Exception>(() => saveFile.saveFile(null)); //Test the Exception
         }
+
+        [TestMethod]
+        public void TestfileOperationsEmptyConstructor()
+        {
+            bool isExisting = false;
+
+            FileOperationsManager fileOperations = new FileOperationsManager();
+            if (fileOperations != null)
+            {
+                isExisting = true;
+            }
+            Assert.AreEqual(true, isExisting);
+        }
+
 
 
     }

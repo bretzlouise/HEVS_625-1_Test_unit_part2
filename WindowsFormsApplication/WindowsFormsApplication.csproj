@@ -114,6 +114,10 @@
       <Project>{1145f663-3dde-442e-b274-c3e858c869c6}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InputOutputManager\InputOutputManager.csproj">
+      <Project>{524F0D7A-6D47-4E00-B092-84DDDD1641F3}</Project>
+      <Name>InputOutputManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
