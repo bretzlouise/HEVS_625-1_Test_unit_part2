@@ -64,7 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CanvasManagerTest.cs" />
     <Compile Include="EdgeDetectionTest.cs" />
     <Compile Include="FileOperationsManagerTest.cs" />
     <Compile Include="ImageFilterTest.cs" />
@@ -118,6 +117,12 @@
       <Project>{524f0d7a-6d47-4e00-b092-84dddd1641f3}</Project>
       <Name>InputOutputManager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\canvasTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openSuseBlackAndWhite.png" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

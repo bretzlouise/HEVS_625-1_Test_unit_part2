@@ -130,8 +130,14 @@
   <data name="beachSobel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\beachSobel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="canvasTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\canvasTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="openSuse" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\openSuse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="openSuseBlackAndWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openSuseBlackAndWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="openSuseRainbow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\openSuseRainbow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

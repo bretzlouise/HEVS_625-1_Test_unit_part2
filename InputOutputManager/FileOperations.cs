@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
@@ -8,15 +7,8 @@ namespace InputOutputManager
 {
     public class FileOperations : IFileOperations
     {
-        //private Bitmap edited = null;
-        private Bitmap originalBitmap = null;
-        //private Bitmap modifiedBitmap = null;
-        //private Bitmap previewBitmap = null;
-        //private Bitmap resultBitmap = null;
-        //private Bitmap filterBitmap = null;
-        //private bool filterButtonEnabled = false;
-        //private bool dropListEnabled = false;
 
+        private Bitmap originalBitmap = null;
 
         public Bitmap openFile()
         {

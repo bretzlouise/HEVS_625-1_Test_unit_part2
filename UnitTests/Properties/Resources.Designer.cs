@@ -103,6 +103,16 @@ namespace UnitTests.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap canvasTest {
+            get {
+                object obj = ResourceManager.GetObject("canvasTest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap openSuse {
             get {
                 object obj = ResourceManager.GetObject("openSuse", resourceCulture);
@@ -116,6 +126,16 @@ namespace UnitTests.Properties {
         internal static System.Drawing.Bitmap openSuse_NoFilter_Save {
             get {
                 object obj = ResourceManager.GetObject("openSuse_NoFilter_Save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap openSuseBlackAndWhite {
+            get {
+                object obj = ResourceManager.GetObject("openSuseBlackAndWhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

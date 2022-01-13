@@ -12,7 +12,7 @@ namespace WindowsFormsApplication
         //Call to the interfaces
         IImageFilters imageFilters = new ImageFilters();
         IEdgeDetection edgeFilters = new EdgeDetection();
-        ICanvasManager canvasManager = new CanvasManager();
+
 
         //Call to the FileOperationsManager
         private FileOperationsManager file = null;
@@ -51,9 +51,9 @@ namespace WindowsFormsApplication
             {
                 var initialImageSize = picPreview.Image.Size;
                 var displaySize = picPreview.ClientSize;
-                picPreview.Image = canvasManager.copyToSquareCanvas(originalBitmap, 415);
                 picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
                 PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
+              
 
                 EnableButtons();
             }
