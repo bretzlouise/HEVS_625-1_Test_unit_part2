@@ -26,7 +26,6 @@ namespace BLL.ModificationImage
             return Bmp;
         }
 
-        //public Bitmap RainbowFilter(Bitmap bmp, BackgroundWorker worker)
         public Bitmap RainbowFilter(Bitmap bmp)
         {
 

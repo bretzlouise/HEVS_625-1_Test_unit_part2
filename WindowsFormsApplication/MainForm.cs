@@ -86,7 +86,7 @@ namespace WindowsFormsApplication
                 sfd.Filter += "|Bitmap Images (*.bmp)|*.bmp";
                 if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    file.saveFile(new Bitmap(modifiedBitmap), sfd.FileName);
+                    file.saveFile(new Bitmap(imageFilters.originalBmp), sfd.FileName);
                 }
             }
         }
@@ -114,25 +114,25 @@ namespace WindowsFormsApplication
             if (button.Equals(filter1))
             {
                 picPreview.Image = originalBitmap;
-                modifiedBitmap = originalBitmap;
+                imageFilters.originalBmp = originalBitmap;
             }
             else
             {
                 if (button.Equals(filter2))
                 {
-                    edited = imageFilters.RainbowFilter(modifiedBitmap);
+                    edited = imageFilters.RainbowFilter(imageFilters.originalBmp);
                 }
                 if (button.Equals(filter3))
                 {
-                    edited = imageFilters.SwapFilter(modifiedBitmap);
+                    edited = imageFilters.SwapFilter(imageFilters.originalBmp);
                 }
                 if (button.Equals(filter4))
                 {
-                    edited = imageFilters.BlackWhite(modifiedBitmap);
+                    edited = imageFilters.BlackWhite(imageFilters.originalBmp);
                 }
-                
-                modifiedBitmap = edited;
-                picPreview.Image = modifiedBitmap;
+
+                imageFilters.originalBmp = edited;
+                picPreview.Image = imageFilters.originalBmp;
             }
         }
 
@@ -159,21 +159,21 @@ namespace WindowsFormsApplication
                 {
                     filterButtonEnabled = true;
                     dropListEnabled = false;
-                    modifiedBitmap = originalBitmap;
+                    imageFilters.originalBmp = originalBitmap;
                     picPreview.Image = originalBitmap;
                 }
 
                 else if (cmbEdgeDetection.SelectedItem.ToString() == "Sobel 3x3")
                 {
-                    bitmapResult = edgeFilters.Sobel3x3Filter(modifiedBitmap, false);
+                    bitmapResult = edgeFilters.Sobel3x3Filter(imageFilters.originalBmp, false);
                 }
                 else if (cmbEdgeDetection.SelectedItem.ToString() == "Prewitt")
                 {
-                    bitmapResult = edgeFilters.PrewittFilter(modifiedBitmap, false);
+                    bitmapResult = edgeFilters.PrewittFilter(imageFilters.originalBmp, false);
                 }
                 else if (cmbEdgeDetection.SelectedItem.ToString() == "Kirsch")
                 {
-                    bitmapResult = edgeFilters.KirschFilter(modifiedBitmap, false);
+                    bitmapResult = edgeFilters.KirschFilter(imageFilters.originalBmp, false);
                 }
             }
 
@@ -182,11 +182,11 @@ namespace WindowsFormsApplication
                 if (preview == true)
                 {
                     picPreview.Image = bitmapResult;
-                    modifiedBitmap = bitmapResult;
+                    imageFilters.originalBmp = bitmapResult;
                 }
                 else
                 {
-                    modifiedBitmap = (Bitmap)picPreview.Image;
+                    imageFilters.originalBmp = (Bitmap)picPreview.Image;
                 }
             }
         }

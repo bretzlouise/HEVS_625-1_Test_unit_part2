@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EdgeDetectionTest.cs" />
+    <Compile Include="FileManagerTest.cs" />
     <Compile Include="FileOperationsManagerTest.cs" />
     <Compile Include="ImageFilterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

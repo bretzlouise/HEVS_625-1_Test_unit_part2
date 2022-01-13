@@ -10,7 +10,7 @@ namespace UnitTests
     [TestClass]
     public class FileOperationsManagerTest
     {
-
+        /*
         // Test method to check that if the openFile() method used in the FileOperationManager is correct
         [TestMethod]
         public void TestOpenFile()
@@ -20,13 +20,9 @@ namespace UnitTests
             Bitmap imageStored = Properties.Resources.beach; //get the file stored            
             loadedFile.openFile().Returns(imageStored); //use the image has substitute of selecting a file
 
-            
             FileOperationsManager fileOperations = new FileOperationsManager(loadedFile); //instantiate the BLL methods
-            //CanvasManager canvasManager = new CanvasManager();
 
             fileOperations.openFile();
-           // Bitmap resultInCanvas = canvasManager.copyToSquareCanvas(imageStored, 415); //Add the file in the canvas
-
             
             Assert.IsTrue(TestMethods.CompareImages(imageStored, 
                 (new Bitmap(Properties.Resources.beach))));
@@ -77,7 +73,7 @@ namespace UnitTests
         
             Assert.ThrowsException<Exception>(() => saveFile.saveFile(null)); //Test the Exception
         }
-
+        */
 
     }
 }

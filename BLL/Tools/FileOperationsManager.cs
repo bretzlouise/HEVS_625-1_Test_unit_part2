@@ -6,12 +6,12 @@ namespace BLL.Tools
     public class FileOperationsManager : InputOutputManager.IFileOperations
     {
         //Call to the interface
-        InputOutputManager.IFileOperations fileOperations;
+        public InputOutputManager.IFileOperations fileOperations { get; set; }
         
 
         public FileOperationsManager()
         {
-            this.fileOperations = new FileOperations();
+            fileOperations = new FileOperations();
         }
 
         public FileOperationsManager(IFileOperations iFileOperations)
