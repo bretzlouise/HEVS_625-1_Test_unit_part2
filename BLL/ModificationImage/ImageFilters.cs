@@ -5,6 +5,11 @@ namespace BLL.ModificationImage
 {
     public class ImageFilters : IImageFilters
     {
+
+        private Bitmap prOriginalBmp;
+
+        public Bitmap originalBmp { get { return prOriginalBmp; } set { prOriginalBmp = value; } }
+
         public Bitmap BlackWhite(Bitmap initial)
         {
             Bitmap Bmp = new Bitmap(initial);

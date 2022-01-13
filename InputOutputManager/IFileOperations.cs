@@ -4,9 +4,9 @@ namespace InputOutputManager
 {
     public interface IFileOperations
     {
-        Bitmap openFile();
+        Bitmap openFile(string path);
 
-        void saveFile(Bitmap resultBitmap);
+        void saveFile(Bitmap image, string path);
 
     }
 }

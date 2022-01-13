@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using BLL.Interface;
 using BLL.ModificationImage;
@@ -39,32 +40,55 @@ namespace WindowsFormsApplication
         private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
 
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select an image file.";
+            ofd.Filter = "PNG Images (*.png)|*.png";
+            ofd.Filter += "|JPEG Images (*.jpg)|*.jpg";
+            ofd.Filter += "|Bitmap Images (*.bmp)|*.bmp";
+
             filterButtonEnabled = false;
             UpdateButtons();
-            originalBitmap = file.openFile();
+    
 
-
-            modifiedBitmap = originalBitmap;
-            picPreview.Image = originalBitmap;
-
-            try
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var initialImageSize = picPreview.Image.Size;
-                var displaySize = picPreview.ClientSize;
-                picPreview.SizeMode = initialImageSize.Width > displaySize.Width || initialImageSize.Height > displaySize.Height ?
-                PictureBoxSizeMode.Zoom : PictureBoxSizeMode.CenterImage;
-              
+                Console.WriteLine("Selected file : " + ofd.FileName);
+                try
+                {
+                    Bitmap tmp = file.openFile(ofd.FileName);
+                    imageFilters.originalBmp = tmp;
+                    picPreview.Image = tmp;
 
-                EnableButtons();
+                    EnableButtons();
+                }
+                catch (FileNotFoundException fnfe)
+                {
+                    Console.WriteLine("oops!\n -> " + fnfe.Message);
+                }
             }
-            catch (NullReferenceException) { }
+            else
+            {
+                Console.WriteLine("File acquisition was canceled.");
+            }
         }
         
 
         //Save the picture
         private void btnSaveNewImage_Click(object sender, EventArgs e)
         {          
-            file.saveFile(modifiedBitmap);           
+ 
+            if (picPreview.Image != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Specify a file name and file path";
+                sfd.Filter = "PNG Images (*.png)|*.png";
+                sfd.Filter += "|JPEG Images (*.jpg)|*.jpg";
+                sfd.Filter += "|Bitmap Images (*.bmp)|*.bmp";
+                if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    file.saveFile(new Bitmap(modifiedBitmap), sfd.FileName);
+                }
+            }
         }
 
         //Enable filters buttons

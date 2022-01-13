@@ -1,5 +1,4 @@
-﻿using System;
-using InputOutputManager;
+﻿using InputOutputManager;
 using System.Drawing;
 
 namespace BLL.Tools
@@ -9,10 +8,6 @@ namespace BLL.Tools
         //Call to the interface
         InputOutputManager.IFileOperations fileOperations;
         
-        //Variables
-        bool imageSaved;
-        private Bitmap originalBitmap = null;
-        private Bitmap resultBitmap = null;
 
         public FileOperationsManager()
         {
@@ -25,45 +20,16 @@ namespace BLL.Tools
         }
 
 
-        public Bitmap openFile()
+        public Bitmap openFile(string path)
         {
-            try
-            {
-
-                originalBitmap = fileOperations.openFile();
-
-                resultBitmap = originalBitmap;
-
-                return originalBitmap;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            return fileOperations.openFile(path);
         }
 
-        public void saveFile(Bitmap resultBitmapNeed)
+        public void saveFile(Bitmap image, string path)
         {
-
-            try
-            {
-                fileOperations.saveFile(resultBitmapNeed);
-                imageSaved = true;
-                resultBitmap = null;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                imageSaved = false;
-            }
+            fileOperations.saveFile(image, path);
         }
 
-        //getter for the bool if the file is saved or not
-        public bool getFileSaved()
-        {
-            return this.imageSaved;
-        }
 
 
     }
