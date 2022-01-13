@@ -42,15 +42,6 @@ namespace InputOutputManager
                     string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
                     ImageFormat imgFormat = ImageFormat.Png;
 
-                    if (fileExtension == "BMP")
-                    {
-                        imgFormat = ImageFormat.Bmp;
-                    }
-                    else if (fileExtension == "JPG")
-                    {
-                        imgFormat = ImageFormat.Jpeg;
-                    }
-
                     StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
                     resultBitmap.Save(streamWriter.BaseStream, imgFormat);
                     streamWriter.Flush();
