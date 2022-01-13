@@ -28,14 +28,14 @@ namespace InputOutputManager
                 }
                 else
                 {
-                    throw new FileNotFoundException("filenot");
+                    throw new FileNotFoundException("file not found 1");
                 }
 
 
             }
             else
             {
-                throw new FileNotFoundException("filenot");
+                throw new FileNotFoundException("file not found 2");
             }
 
  
